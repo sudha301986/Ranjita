@@ -1,16 +1,16 @@
 /* === Import Font === */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-/* === CSS Variables (Purple, Blue, Pink Color Scheme) === */
+/* === CSS Variables (Dark Blue Color Scheme) === */
 :root {
-    --bg-color: #1A1230;         /* Deep Plum/Dark Navy Background */
-    --text-color: #ECEFF1;       /* Very Light Gray Text */
-    --accent-color: #6699FF;     /* Bright Blue Accent */
-    --highlight-color: #FF69B4;  /* Hot Pink Highlight */
-    --card-bg: #271C40;          /* Slightly lighter dark purple for cards */
-    --shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+    --bg-color: #0F1D33;         /* Deep Midnight Blue Background */
+    --text-color: #F8F9FA;       /* Light Silver Text */
+    --accent-color: #4A90E2;     /* Vibrant Electric Blue Accent */
+    --highlight-color: #FFD700;  /* Warm Gold Highlight (High Contrast) */
+    --card-bg: #1A2E44;          /* Slightly lighter dark blue for cards */
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
     --light-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    --border-color: #403260;     /* Muted purple border */
+    --border-color: #2F455C;
     --border-radius: 12px;
     --header-height: 70px;
 }
@@ -43,7 +43,7 @@ body {
     to   { opacity: 1; }
 }
 
-/* === Dynamic Background Animation (Subtle Purple/Blue Shift) === */
+/* === Dynamic Background Animation (Subtle Blue Shift) === */
 .background-animation {
     position: fixed;
     top: 0;
@@ -51,8 +51,8 @@ body {
     width: 100%;
     height: 100vh;
     z-index: -1;
-    /* Subtle gradient shift between dark purple/blue hues */
-    background: linear-gradient(300deg, var(--bg-color), #2C204B, #1A1230);
+    /* Subtle gradient shift within the dark blue range */
+    background: linear-gradient(300deg, var(--bg-color), #142840, var(--bg-color));
     background-size: 200% 200%;
     animation: subtleGradient 20s ease infinite;
 }
@@ -71,13 +71,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 3rem; line-height: 1.2; }
-h2 { font-size: 2rem; margin-top: 1.5rem; color: var(--text-color);} /* H2 text is light gray */
+h2 { font-size: 2rem; margin-top: 1.5rem; color: var(--text-color);} /* H2 text is light silver */
 h3 { font-size: 1.25rem; color: var(--accent-color); font-weight: 600; }
 p { margin-bottom: 1rem; }
 a { color: var(--accent-color); text-decoration: none; }
 
 .highlight {
-    color: var(--highlight-color); /* Hot Pink highlight */
+    color: var(--highlight-color); /* Gold highlight */
     font-weight: 700;
 }
 
@@ -88,8 +88,8 @@ a { color: var(--accent-color); text-decoration: none; }
     width: 100%;
     height: var(--header-height);
     z-index: 1000;
-    /* Frosted glass effect */
-    background: rgba(26, 18, 48, 0.85); 
+    /* Darker frosted glass effect */
+    background: rgba(15, 29, 51, 0.85); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
@@ -106,7 +106,7 @@ nav {
 }
 
 .logo a {
-    color: var(--highlight-color); /* Pink logo */
+    color: var(--highlight-color); /* Gold logo */
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
@@ -122,7 +122,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-color); /* Light gray links */
+    color: var(--text-color); /* Light silver links */
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.5rem 0;
@@ -153,7 +153,7 @@ nav {
 }
 
 .nav-links a.active {
-    color: var(--highlight-color); /* Pink for active link */
+    color: var(--highlight-color); /* Gold for active link */
 }
 
 .burger {
@@ -171,4 +171,284 @@ nav {
 
 /* === Main Content & Layout === */
 main {
-    max-width: 900px
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    color: #6a82a0; /* Muted blue-grey footer text */
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* === Home Page (Hero Section) === */
+.hero {
+    min-height: calc(80vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color); /* H1 text is light silver */
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #B0C4DE; /* Lighter blue for subtitle */
+    margin: 1rem 0 1.5rem 0;
+}
+
+.quote {
+    font-style: italic;
+    color: #8fa2b9;
+    margin-bottom: 2rem;
+}
+
+/* === Premium Button Styling === */
+.cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--bg-color); /* Dark text on bright button */
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: var(--light-shadow);
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+/* === Resume & Contact Page Styling === */
+.resume-header,
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.resume-header p,
+.contact-header p {
+    font-size: 1.1rem;
+    color: #B0C4DE;
+}
+
+.resume-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+/* === Scroll-Reveal Animation (Same as before) === */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Resume Section Specifics */
+.work-item, .education-item, .project-item {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+.work-item:last-child,
+.education-item:last-child,
+.project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.date-range {
+    font-style: italic;
+    color: #9aaec7;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-item ul {
+    list-style-position: outside;
+    margin-left: 1.2rem;
+    color: #CCCCCC;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list h3 {
+    width: 100%;
+}
+
+.skills-list li {
+    background: #2F455C; /* Darker background for skill tags */
+    color: var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.project-link {
+    font-weight: 600;
+    color: var(--highlight-color); /* Gold link for emphasis */
+}
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* === Contact Form === */
+#contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background: #102035; /* Very dark input background */
+    color: var(--text-color);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* Form Validation Styling */
+#contact-form input.error,
+#contact-form textarea.error {
+    border-color: #D9534F; /* Red error border */
+}
+#contact-form input.error:focus,
+#contact-form textarea.error:focus {
+     box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.3);
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+#form-message.success {
+    color: var(--accent-color);
+}
+#form-message.error {
+    color: #D9534F;
+}
+
+/* === Responsive (Mobile) Design === */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .subtitle { font-size: 1.1rem; }
+    
+    main {
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+
+    .resume-card {
+        padding: 1.5rem;
+    }
+
+    /* Mobile Navigation */
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background: #0D1929; /* Slightly darker background for mobile menu */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 2rem 0;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+
+    .burger {
+        display: block;
+        z-index: 1001;
+    }
+
+    /* Burger animation */
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
